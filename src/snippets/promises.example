@@ -129,3 +129,97 @@ fetch('/json/data.json')
     // catching all failures!
     console.error(e)
   })
+
+// if at any point an error is thrown
+// a Promise will implicitly reject the Promise
+// as if it was written like
+new Promise((resolve, reject) => {
+  try {
+    throw new Error('Error!')
+  } catch (e) {
+    reject(e)
+  }
+})
+
+// .then() receives the resolve(data) as its first argument
+fetch('/json/data.json').then(response => {
+  // handle response data
+})
+
+// .then() receives any rejection error in its second argument
+fetch('/json/data.json').then(null, e => {
+  // handle errors
+})
+
+// .catch() is the equivalent, but more succinct
+fetch('/json/data.json').catch(e => {
+  // handle errors
+})
+
+// Promise.resolve() creates a promise
+// that is "immediately" settled & fulfilled.
+// You can optionally pass a value
+Promise.resolve('Daniel').then(name => {
+  // output: Daniel
+  console.log(name)
+})
+
+console.log('but this still executes first')
+
+// Catching errors is simpler and can also be chained
+// Create immediately fulfilled, but empty promise
+Promise.resolve()
+  .then(() => {
+    // throw an `Error` which should be
+    // caught by `catch()`
+    throw new Error('oh no!')
+  })
+  .catch(e => {
+    // output: 'oh no!' error with call
+    // stack info
+    console.error(e)
+
+    // throw another `Error` within this
+    // error handler, which can be caught
+    // by a follow-up error handler
+    throw new Error('again?!?!')
+  })
+  .catch(e => {
+    // output: 'again?!?!' error
+    console.error(e)
+  })
+
+// and if you want to make multiple async requests in parallel
+// but only do something when they have all finished
+// Return a promise that is only fulfilled once
+// all of the url fetch requests are fulfilled
+// via Promise.all
+function fetchAll(...urls) {
+  // Use rest parameter to aggregate URLs
+  // into an array
+
+  return Promise.all(
+    // map the array of urls into an array
+    // of `fetch` promises
+    urls.map(fetch)
+  )
+}
+
+// Make an XHR request for each URL and
+// process the results once they've *all*
+// completed
+fetchAll(
+  '/json/data.json',
+  '/json/data2.json',
+  '/json/data3.json',
+  '/json/data4.json',
+  '/json/data5.json'
+).then(responses => {
+  // `responses` is the array of response
+  // data
+
+  // output: 5
+  console.log(responses.length)
+
+  // more processing of results
+})

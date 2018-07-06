@@ -573,6 +573,7 @@ export default class Presentation extends React.Component {
             { loc: [21, 25] },
             { loc: [26, 54] },
             { loc: [55, 66] },
+            { loc: [32, 43] },
             { loc: [41, 42] },
             { loc: [44, 53] },
             { loc: [67, 91] },
@@ -584,7 +585,21 @@ export default class Presentation extends React.Component {
             { loc: [115, 124] },
             { loc: [124, 127] },
             { loc: [127, 131] },
-            { loc: [114, 115] },
+            { loc: [95, 112] },
+            { loc: [102, 104] },
+            { loc: [105, 107] },
+            { loc: [132, 142] },
+            { loc: [143, 147] },
+            { loc: [148, 152] },
+            { loc: [153, 157] },
+            { loc: [158, 167] },
+            { loc: [168, 176] },
+            { loc: [176, 185] },
+            { loc: [186, 190] },
+            { loc: [191, 206] },
+            { loc: [207, 216] },
+            { loc: [196, 206] },
+            { loc: [216, 225] },
           ]}
           notes={
             <div>
@@ -606,6 +621,35 @@ export default class Presentation extends React.Component {
                   within callback within callbacks. This affectionately became known as callback
                   hell. Let’s say for example after you retrieved /json/data.json you needed to make
                   another fetch request based on the returned data from the first request:
+                </li>
+                <li>
+                  A promise can be in one of the following three states:<ul>
+                    <li>
+                      {' '}
+                      Unsettled/pending - the promise’s async operation has yet to compute its
+                      result
+                    </li>
+                    <li>
+                      {' '}
+                      Settled: fulfilled - the promise’s async operation has completed successfully
+                      and computed a result to return{' '}
+                    </li>
+                    <li>
+                      Settled: rejected - the promise’s async operation did not complete
+                      successfully, most likely due to an error{' '}
+                    </li>
+                  </ul>A promise is settled (the async operation has completed) if it is either
+                  fulfilled or rejected. A promise can only transition from unsettled to settled one
+                  time and it remains settled. Attempting to settle an already settled promise does
+                  nothing.
+                </li>
+                <li>
+                  The convention is to use then() exclusively for fulfillments and catch()
+                  exclusively for errors. This nicely labels the reactions. The advantage of using
+                  then() and catch() over the old-generation event handlers and callbacks is that
+                  it’s completely clear whether the code is handling success or failure. Many times
+                  with callbacks there is a single callback and within it you have to do an if check
+                  against any errors.
                 </li>
               </ul>
             </div>
