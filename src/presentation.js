@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Import Spectacle Core tags
-import { BlockQuote, Cite, Deck, Heading, ListItem, List, Quote, Slide, Text, Code } from 'spectacle'
+import { BlockQuote, Cite, Deck, Heading, ListItem, List, Notes, Quote, Slide, Text, Code } from 'spectacle'
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default'
@@ -29,15 +29,19 @@ const theme = createTheme(
     quartenary: '#CECECE',
   },
   {
-    primary: 'Montserrat',
     secondary: 'Helvetica',
+    primary: {
+      name: 'Rubik',
+      googleFont: true,
+      styles: ['400', '700i'],
+    },
   }
 )
 
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={['zoom', 'slide']} transitionDuration={500} theme={theme}>
+      <Deck transition={['zoom', 'slide']} transitionDuration={500} theme={theme} contentWidth={1400}>
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Spectacle Boilerplate
@@ -47,8 +51,11 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
         <Slide>
-          <Heading>I ❤️ ES6</Heading>
-          <Text>or ... how I can tolerate writing JavaScript again</Text>
+          <Heading>
+            I <span role="img">❤️</span> ES6
+          </Heading>
+          <Text>or</Text>
+          <Text>how I learned to tolerate writing JavaScript again</Text>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>
@@ -87,35 +94,28 @@ export default class Presentation extends React.Component {
         <CodeSlide
           transition={[]}
           lang="js"
-          code={require('raw-loader!./snippets/arrow-functions-1.js')}
+          code={require('./snippets/arrow-functions-1.example')}
           ranges={
             [
-              { loc: [0, 99], title: '() => {}' },
-              { loc: [0, 1], title: 'The Beginning' },
-              { loc: [1, 2] },
-              { loc: [1, 2], note: 'Heres a note!' },
-              { loc: [2, 3] },
-              { loc: [4, 7] },
+              { loc: [0, 0], title: '( ) => { }' },
+              { loc: [0, 4] },
+              { loc: [5, 7] },
               { loc: [8, 10] },
+              { loc: [11, 13] },
+              { loc: [14, 16] },
+              { loc: [17, 20] },
             ]
             // ...
           }
-        />
-        <CodeSlide
-          transition={[]}
-          lang="js"
-          code={require('raw-loader!./snippets/destructuring.js')}
-          ranges={
-            [
-              { loc: [0, 99], title: 'Walking through some code' },
-              { loc: [0, 1], title: 'The Beginning' },
-              { loc: [1, 2] },
-              { loc: [1, 2], note: 'Heres a note!' },
-              { loc: [2, 3] },
-              { loc: [4, 7] },
-              { loc: [8, 10] },
-            ]
-            // ...
+          notes={
+            <div>
+              <h4>Arrow functions are the shorthand form of anonymous functions that already exist</h4>
+              <ul>
+                <li>It's concise. Only requires the function arguments and function body</li>
+                <li>Single line functions have an implicit return</li>
+                <li>Functions with a single argument doesn't require parenthesis</li>
+              </ul>
+            </div>
           }
         />
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">

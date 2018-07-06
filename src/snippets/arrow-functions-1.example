@@ -1,0 +1,20 @@
+// ES5
+var squares = [1, 2, 3].map(function(x) {
+  return x * x
+})
+
+// ES6
+var squares = [1, 2, 3].map(x => x * x)
+
+// two or more arguments
+var sum = [9, 8, 7].reduce((memo, value) => memo + value, 0)
+
+// no arguments
+var getRandom = () => Math.random() * 100
+
+// returned objects must be wrapped in parenthesis
+console.log([4, 5, 1].map(x => ({ foo: x })))
+
+// WRONG: no parenthesis
+// prettier-ignore
+console.log([4, 5, 1].map(x => { foo: x }))
