@@ -1,0 +1,65 @@
+// rest parameters replaces the need for the special `arguments` variable
+function join(separator, ...values) {
+  return values.join(separator)
+}
+
+// all of the parameters after the first
+// are gathered together into `values`
+// which is a true `Array`
+// output: "one//two//three"
+console.log(join('//', 'one', 'two', 'three'))
+
+// this is handy when you want to pull off a subset of properties
+// but pass the remaining values on
+const getComments = ({ url, ...options }) => fetch(url, options)
+
+// or in a React component
+const PageLayout = ({ title, ...values }) => (
+  <>
+    <Title>{title}</Title>
+    <Page {...{ values }} />
+  </>
+)
+
+// -
+// use the spread operator to convert an array into arguments
+function volume(width, length, height) {
+  return width * length * height
+}
+
+// the array values are separated into
+// separate parameters
+// output: 80 (2 * 8 * 5)
+console.log(volume(...[2, 8, 5]))
+
+// -
+// you can also use it in destructuring
+let list = [9, 8, 7, 6, 5],
+  [first, second, ...rest] = list
+
+// output: [7, 6, 5], 8, 9
+console.log(rest, second, first)
+
+// use it to replace .concat for creating new arrays
+// ES5
+console.log([(11, 10)].concat(list))
+
+// ES6
+console.log([11, 10, ...list])
+// [11, 10, 9, 8, 7, 6, 5]
+
+let defaultOptions = { count: 10, page: 1, order: 'ascending' }
+
+// the spread operator will create a new object
+// perfect for merging options together
+fetch({ ...defaultOptions, page: 2 })
+// fetch({count: 10, page: 2, order: 'ascending'})
+
+// right-most properties take precedence
+fetch({ ...defaultOptions, page: 2, order: 'descending' })
+// fetch({count: 10, page: 2, order: 'descending'})
+
+let newOptions = { count: 50, order: 'descending' }
+
+fetch({ ...defaultOptions, ...newOptions })
+// fetch({count: 50, page: 1, order: 'descending'})

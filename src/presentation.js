@@ -208,7 +208,6 @@ export default class Presentation extends React.Component {
                   Variables declared via `let` are not available outside of the block in which they
                   are declared
                 </li>
-
                 <li>
                   Traditionally, one of the tricky parts of JavaScript has been the way that var
                   declarations work. In most C-based languages [such as C++, Java or C#], variables
@@ -272,13 +271,83 @@ export default class Presentation extends React.Component {
               <h4>destructuring</h4>
               <ul>
                 <li>If you wanted address and city as variables you'd need two statements</li>
-
                 <li>
                   destructuring has a fail-soft approach where missing properties result in
                   `undefined`
                 </li>
                 <li>
                   however be cautious of destructuring a child whose parent property is also missing
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <Slide>
+          <Heading>Parameters</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/parameters-1.example')}
+          ranges={[
+            { loc: [0, 0], title: 'lunch({sleepy = true})' },
+            { loc: [0, 13] },
+            { loc: [12, 13] },
+            { loc: [2, 3] },
+            { loc: [3, 5] },
+            { loc: [14, 31] },
+            { loc: [25, 30] },
+            { loc: [15, 16] },
+            { loc: [32, 39] },
+            { loc: [40, 45] },
+            { loc: [46, 57] },
+            { loc: [62, 66] },
+            { loc: [67, 73] },
+            { loc: [74, 80] },
+            { loc: [81, 86] },
+            { loc: [87, 91] },
+            { loc: [92, 96] },
+            { loc: [97, 101] },
+            { loc: [102, 105] },
+            { loc: [106, 108] },
+            { loc: [109, 111] },
+            { loc: [112, 115] },
+            { loc: [116, 119] },
+            { loc: [120, 124] },
+          ]}
+          notes={
+            <div>
+              <h4>parameter handling</h4>
+              <ul>
+                <li>If you wanted address and city as variables you'd need two statements</li>
+              </ul>
+            </div>
+          }
+        />
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/parameters-2.example')}
+          ranges={[
+            { loc: [0, 0], title: '{i, need, ...rest}' },
+            { loc: [0, 4] },
+            { loc: [0, 10] },
+            { loc: [11, 14] },
+            { loc: [15, 22] },
+            { loc: [24, 33] },
+            { loc: [35, 41] },
+            { loc: [42, 49] },
+            { loc: [50, 56] },
+            { loc: [57, 60] },
+            { loc: [61, 65] },
+          ]}
+          notes={
+            <div>
+              <h4>parameter handling</h4>
+              <ul>
+                <li>
+                  the spread operator allows us to separate an array into individual parameters,
+                  taking the place of the `apply` function
                 </li>
               </ul>
             </div>
