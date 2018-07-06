@@ -95,18 +95,15 @@ export default class Presentation extends React.Component {
           transition={[]}
           lang="js"
           code={require('./snippets/arrow-functions-1.example')}
-          ranges={
-            [
-              { loc: [0, 0], title: '( ) => { }' },
-              { loc: [0, 4] },
-              { loc: [5, 7] },
-              { loc: [8, 10] },
-              { loc: [11, 13] },
-              { loc: [14, 16] },
-              { loc: [17, 20] },
-            ]
-            // ...
-          }
+          ranges={[
+            { loc: [0, 0], title: '( ) => { }' },
+            { loc: [0, 4] },
+            { loc: [5, 7] },
+            { loc: [8, 10] },
+            { loc: [11, 13] },
+            { loc: [14, 16] },
+            { loc: [17, 20] },
+          ]}
           notes={
             <div>
               <h4>Arrow functions are the shorthand form of anonymous functions that already exist</h4>
@@ -114,6 +111,59 @@ export default class Presentation extends React.Component {
                 <li>It's concise. Only requires the function arguments and function body</li>
                 <li>Single line functions have an implicit return</li>
                 <li>Functions with a single argument doesn't require parenthesis</li>
+              </ul>
+            </div>
+          }
+        />
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/arrow-functions-2.example')}
+          ranges={[
+            { loc: [0, 0], title: 'Say no to this' },
+            { loc: [0, 24] },
+            { loc: [19, 20] },
+            { loc: [3, 13] },
+            { loc: [4, 8] },
+            { loc: [8, 12] },
+            { loc: [9, 10] },
+            { loc: [25, 52] },
+            { loc: [47, 48] },
+            { loc: [28, 41] },
+            { loc: [29, 40] },
+            { loc: [30, 38] },
+            { loc: [53, 73] },
+            { loc: [56, 64] },
+          ]}
+          notes={
+            <div>
+              <h4>Arrow functions have implicit `this` binding</h4>
+              <ul>
+                <li>Never store `this` or bind again</li>
+                <li>
+                  The value of `this` within an arrow function is determined by where the arrow function is defined and not by where it is
+                  used (a.k.a. lexical scoping)
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/arrow-functions-3.example')}
+          ranges={[
+            { loc: [0, 0], title: '( ) => ( ) => ( ) => { }' },
+            { loc: [0, 7] },
+            { loc: [2, 6] },
+            { loc: [8, 13] },
+            { loc: [14, 19] },
+          ]}
+          notes={
+            <div>
+              <h4>Chain Arrows together</h4>
+              <ul>
+                <li>when returning a function, we can chain fat arrows together</li>
               </ul>
             </div>
           }

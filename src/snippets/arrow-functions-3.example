@@ -1,0 +1,19 @@
+// A function explicitly returning a function
+const matchKey = key => {
+  return event => {
+    const value = event.target.value
+    if (key === value) return true
+  }
+}
+
+// Same as before, but in a chain
+const matchKey = key => event => {
+  const value = event.target.value
+  if (key === value) return true
+}
+
+// Call a function with the information we have now
+// To return a function that will get called later
+const matchFoo = matchKey('foo')
+
+const Form = () => <input onChange={matchFoo} />

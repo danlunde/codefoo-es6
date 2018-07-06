@@ -1,7 +1,4 @@
-// Never store `this` or bind again
-// Arrow functions have implicit `this` binding
-// The value of `this` within an arrow function is determined by where the arrow function is defined and not by where it is used (a.k.a. lexical scoping)
-
+// ES5 - assign .this to self
 var car = {
   speed: 0,
   accelerate: function() {
@@ -26,6 +23,7 @@ setTimeout(function() {
   car.cruise()
 }, 5000)
 
+// ES5 - bind .this
 var car = {
   speed: 0,
   accelerate: function() {
@@ -53,6 +51,7 @@ setTimeout(function() {
   car.cruise()
 }, 5000)
 
+// ES6 - lexical scoping
 var car = {
   speed: 0,
   accelerate: function() {
