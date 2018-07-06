@@ -426,6 +426,61 @@ export default class Presentation extends React.Component {
           }
         />
         <Slide>
+          <Heading>for-of</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/for-of.example')}
+          ranges={[
+            { loc: [0, 0], title: 'loop de loop' },
+            { loc: [0, 6] },
+            { loc: [7, 15] },
+            { loc: [16, 23] },
+            { loc: [24, 31] },
+            { loc: [32, 43] },
+          ]}
+          notes={
+            <div>
+              <h4>for-of</h4>
+              <ul>
+                <li>
+                  The new for-of loop introduced with ES6 allows for iterating over an array (or any
+                  iterable) in a succinct fashion similar to how we can iterate over the keys of an
+                  object using for-in.
+                </li>
+                <li>
+                  forEach disadvantages: With a normal for loop you can break to end the loop early.
+                  There isn’t a way to end forEach early. Including break within the forEach
+                  callback function will be a syntax error. It is only valid within loops.
+                  Similarly, with a for loop when we return, we are exiting out of the entire
+                  function that the for loop is in. However, putting a return within the forEach
+                  callback function just exits out of the callback function itself early. It’s
+                  actually more or less equivalent to doing continue in a for loop, but far less
+                  intuitive. Including continue in the forEach call back function would be the same
+                  sort of syntax error we got with break. Lastly, only Array objects have the
+                  forEach method. Other array-like objects (such as arguments or DOM NodeList)
+                  unfortunately do not, leaving us to do “clever” tricks with Array.prototype.apply.
+                </li>
+                <li>
+                  for-of advantages: We get the succinct syntax of for-in, the run-to-completion of
+                  forEach, and the ability to break, continue, and return of the simple for loop.
+                  Now JavaScript has a loop control structure that is just as succinct as what you
+                  will find in Python, C# or Java. Remember: for-of is for iterating over arrays and
+                  for-in is for iterating over the keys of objects.
+                </li>
+                <li>
+                  But for-of doesn’t just work for arrays. If it did, it probably wouldn’t have been
+                  meaty enough to add to the ES6 specification. Other existing collections like the
+                  DOM NodeList object, the arguments object, and strings also work with for-of. Just
+                  like with arrays, this makes it a little bit easier to iterate over these
+                  non-array objects.
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <Slide>
           <Heading>Promises</Heading>
         </Slide>
         <CodeSlide

@@ -1,0 +1,43 @@
+// ES3: for loop
+var list = [8, 3, 11, 9, 6]
+
+for (var i = 0; i < list.length; i++) {
+  console.log(list[i])
+}
+
+// ES3: what about for-in???
+var list = [8, 3, 11, 9, 6]
+
+// DON'T DO THIS!!!!
+// i is a String, order is not guaranteed, length may get included
+for (var i in list) {
+  console.log(list[i])
+}
+
+// ES5: forEach
+// can't break, return only exits callback
+var list = [8, 3, 11, 9, 6]
+
+list.forEach(function(value, i) {
+  console.log(value)
+})
+
+// ES6: for-of
+// just as succinct as for-in and can break, continue and return
+let list = [8, 3, 11, 9, 6]
+
+for (let value of list) {
+  console.log(value)
+}
+
+// for-of is not just for arrays
+for (var char of 'Hello') {
+  console.log(char)
+}
+
+// output:
+// H
+// e
+// l
+// l
+// o
