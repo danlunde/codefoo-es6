@@ -1,0 +1,224 @@
+// Set contains a unique set of values of any type:
+let set = new Set([true, 'Daniel', 5])
+
+set
+  .add(false)
+  .add('Lunde')
+  .add(25)
+  .add(true)
+
+// output: 6
+console.log(set.size)
+
+// output: true
+console.log(set.has('Daniel'))
+
+// Map is a mapping of keys of any type to values of any type:
+let map = new Map()
+
+map.set('foo', 'bar')
+map.set(true, 'Daniel') // non-strings can be keys
+
+// output: Daniel
+console.log(map.get(true))
+
+// output: 2
+console.log(map.size)
+
+// WeakMap provides memory leak-free lookup of objects to values of any type:
+let $leftButton = $('#leftButton')
+let domMetadata = new WeakMap()
+
+domMetadata.set($leftButton, { clickCount: 0 })
+
+// WeakSet provides memory leak-free collection of unique objects:
+let $leftButton = $('#leftButton')
+let clickedDomNodes = new WeakSet()
+
+clickedDomNodes.add($leftButton)
+
+// Maps can handle anything as a key
+let allStarVotesEmpty = new Map()
+
+let steph = new Player('Stephen Curry')
+let kobe = new Player('Kobe Bryant')
+let lebron = new Player('LeBron James')
+
+let allStarVotesInitialized = new Map([[steph, 50], [kobe, 0], [lebron, 22]])
+
+// whereas object literal will coerce keys into a string
+let allStarVotes = {
+  [steph]: 50,
+  [kobe]: 0,
+  [lebron]: 22,
+}
+
+// output: true
+// the player objects are coerced to the
+// strings "[Object object]"
+console.log('[Object object]' in allStarVotes)
+
+// and doesn't work well with falsy values as key
+let allStarVotes = {
+  'Stephen Curry': 50,
+  'Kobe Bryant': 0,
+  'LeBron James': 22,
+}
+
+// truthy check doesn't work because 0 is a
+// valid value and is falsy
+if (allStarVotes['Kobe Bryant']) {
+  console.log('Kobe Bryant is a candidate')
+}
+
+// Map avoids all these problems
+let steph = new Player('Stephen Curry')
+let kobe = new Player('Kobe Bryant')
+let lebron = new Player('LeBron James')
+let allStarVotes = new Map()
+
+allStarVotes
+  .set(steph, 50)
+  .set(kobe, 0)
+  .set(lebron, 22)
+
+// output: 50
+console.log(allStarVotes.get(steph))
+
+// output: false
+console.log(allStarVotes.has('Kevin Durant'))
+
+allStarVotes.delete(kobe)
+
+// output: 2
+console.log(allStarVotes.size)
+
+allStarVotes.clear()
+
+// output: 0
+console.log(allStarVotes.size)
+
+// Weakmap lacks .size, .clear, and iteration
+let steph = new Player('Stephen Curry')
+let kobe = new Player('Kobe Bryant')
+let lebron = new Player('LeBron James')
+let allStarVotesWeak = new WeakMap()
+
+allStarVotesWeak
+  .set(steph, 50)
+  .set(kobe, 0)
+  .set(lebron, 22)
+
+// output: 50
+console.log(allStarVotesWeak.get(steph))
+
+// output: false
+console.log(allStarVotesWeak.has('Kevin Durant'))
+
+allStarVotesWeak.delete(kobe)
+
+// set up metadata click map
+let clickMap = new WeakMap()
+
+// on each click, add the p to the map
+// (with initial click) or increment its
+// click count
+$('p').click(function() {
+  let pNode = this
+  let clicks = clickMap.get(pNode)
+
+  if (!clicks) {
+    clicks = 0
+  }
+
+  clicks.set(pNode, ++clicks)
+})
+// now if pNode disappears it can be automagically removed from clickMap
+
+// Set is like a restricted Map, except the keys don't matter
+let steph = new Player('Stephen Curry')
+let kobe = new Player('Kobe Bryant')
+let lebron = new Player('LeBron James')
+
+let allStars = new Set()
+
+allStars
+  .add(steph)
+  .add(kobe)
+  .add(steph) // duplicates are removed
+  .add(lebron)
+
+// output: false
+console.log(allStars.has('Kevin Durant'))
+
+// output: true
+console.log(allStars.has(kobe))
+
+allStars.delete(kobe)
+
+// output: 2
+console.log(allStars.size)
+
+allStars.clear()
+
+// output: 0
+console.log(allStars.size)
+
+// Iterate of Map with .keys(), .values(), or .entries()
+// log each player name since player
+// is a key in the map
+allStarVotes.keys().forEach(player => {
+  console.log(player.name)
+})
+
+// log each all star vote count since
+// count is a value in the map
+allStarVotes.values().forEach(count => {
+  console.log(count)
+})
+
+// log each player name and his votes count
+// together. Ex: 'Stephen Curry (50)
+// Uses array destructuring to assign [key, value]
+// pair into separate variables
+allStarVotes.entries().forEach(([player, count]) => {
+  console.log(`${player.name} (${count})`)
+})
+
+// Set can also iterate with .keys(), .values(), or .entries()
+// but .keys() is identical to .values()
+// and .entries() uses the same value for key and value
+allStars.forEach((value, key, setRef) => {
+  console.log(value.name)
+
+  // In a set the value & key are the same
+  console.log(value === key)
+
+  // The third parameter is a reference to the
+  // instance
+  console.log(setRef === allStars)
+})
+
+// the default iterator for Map is .entries()
+// Uses array destructuring to assign [key, value]
+// pair into separate variables
+for (let [player, count] of allStarVotes) {
+  console.log(`${player.name} (${count})`)
+}
+
+// the default iterator for Set is .values()
+for (let allStar in allStars) {
+  console.log(allStar.name)
+}
+
+// A Weakset is the combination of Set and WeakMap
+// it only contains unique values
+// set up set of clicked nodes
+let clickedNodes = new WeakSet()
+
+// on each click, add the p to the set
+$('p').click(function() {
+  let pNode = this
+
+  clickedNodes.add(pNode)
+})

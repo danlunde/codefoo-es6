@@ -481,6 +481,83 @@ export default class Presentation extends React.Component {
           }
         />
         <Slide>
+          <Heading>New Collections</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/collections.example')}
+          ranges={[
+            { loc: [0, 0], title: '🗺 [Map] / 🎾 [Set]' },
+            { loc: [0, 8] },
+            { loc: [0, 11] },
+            { loc: [0, 14] },
+            { loc: [15, 20] },
+            { loc: [15, 23] },
+            { loc: [15, 26] },
+            { loc: [27, 32] },
+            { loc: [33, 38] },
+            { loc: [39, 47] },
+            { loc: [48, 59] },
+            { loc: [60, 72] },
+            { loc: [73, 78] },
+            { loc: [79, 83] },
+            { loc: [84, 86] },
+            { loc: [87, 89] },
+            { loc: [90, 91] },
+            { loc: [92, 94] },
+            { loc: [95, 96] },
+            { loc: [97, 99] },
+            { loc: [100, 110] },
+            { loc: [111, 118] },
+            { loc: [119, 121] },
+            { loc: [122, 136] },
+            { loc: [137, 149] },
+            { loc: [150, 152] },
+            { loc: [153, 155] },
+            { loc: [156, 157] },
+            { loc: [158, 160] },
+            { loc: [161, 162] },
+            { loc: [163, 165] },
+            { loc: [166, 172] },
+            { loc: [173, 178] },
+            { loc: [179, 186] },
+            { loc: [187, 200] },
+            { loc: [201, 207] },
+            { loc: [208, 212] },
+            { loc: [213, 224] },
+          ]}
+          notes={
+            <div>
+              <h4>collections</h4>
+              <ul>
+                <li>
+                  You may be thinking. Why do I need to use Map when I can just use a POJO (plain
+                  ol’ JavaScript object)? At first glance it certainly does look just like an object
+                  literal. But up until now we have been abusing JavaScript objects as maps. They
+                  were intended for holding loosely, abtitrarily-nested structured data much like
+                  XML. But when there’s only one level indexed by string keys, they basically look
+                  like maps.
+                </li>
+                <li>
+                  A good rough guideline deals with the types of keys in your map. If you’re keys
+                  are fixed/static then just use a vanilla JavaScript object. It’s really simple to
+                  do map.keyName. If your keys are dynamic (you’re indexing into the map using
+                  variables), then use a Map:
+                </li>
+                <li>
+                  When you use an object as a key in a Map object. Those object keys will never get
+                  garbage collected as long as the Map object is around because the Map object still
+                  has references to them. This can cause memory leaks if nothing else has references
+                  to these object keys. However, if the object keys in a WeakMap have no other
+                  references to them, those objects will be removed from the WeakMap object and
+                  available for garbage collection. This prevents the chance of a memory leak.
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <Slide>
           <Heading>Promises</Heading>
         </Slide>
         <CodeSlide
