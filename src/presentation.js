@@ -14,19 +14,12 @@ import {
   Quote,
   Slide,
   Text,
-  Code,
 } from 'spectacle'
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default'
 
 import CodeSlide from 'spectacle-code-slide'
-// import shiaLabeoufMagicGif from "./shiaLabeoufMagic.gif";
-// import preloader from "spectacle/lib/utils/preloader";
-
-// preloader({
-//   shiaLabeoufMagicGif
-// });
 
 // Require code snippets
 /* eslint import/no-webpack-loader-syntax: off */
@@ -57,7 +50,11 @@ export default class Presentation extends React.Component {
       <Deck transition={['fade']} transitionDuration={500} theme={theme} contentWidth={1400}>
         <Slide>
           <Heading>
-            I <span role="img">❤️</span> ES6
+            I{' '}
+            <span role="img" aria-label="love">
+              ❤️
+            </span>{' '}
+            ES6
           </Heading>
           <Text>or</Text>
           <Text>how I learned to tolerate writing JavaScript again</Text>
@@ -392,7 +389,7 @@ export default class Presentation extends React.Component {
           lang="js"
           code={require('./snippets/template-literals.example')}
           ranges={[
-            { loc: [0, 0], title: '`i give this talk a ${rating}`' },
+            { loc: [0, 0], title: '`i give this talk a ${rating}`' }, //eslint-disable-line no-template-curly-in-string
             { loc: [0, 4] },
             { loc: [5, 12] },
             { loc: [13, 32] },
