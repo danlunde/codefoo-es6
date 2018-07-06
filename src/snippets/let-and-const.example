@@ -1,8 +1,3 @@
-//let is the new var
-
-//Variables declared via `let` are not available outside of the block in which they are declared
-//Variables declared via `const` also cannot be updated
-
 function simpleExample(value) {
   const constValue = value
 
@@ -40,11 +35,7 @@ function simpleExample(value) {
 
 simpleExample(2)
 
-//Traditionally, one of the tricky parts of JavaScript has been the way that var declarations work. In most C-based languages [such as C++, Java or C#], variables are created at the spot where the declaration occurs. In JavaScript, however, this is not the case. Variables declared using var are hoisted to the top of the function (or global scope) regardless of where the actual declaration occurs.
-//`let` avoids this issue by being block-scoped; it only exists within the current block
-
 // use `let` inside of for loops
-
 function simpleLoopExample() {
   for (var i = 0; i < 5; i++) {
     console.log('i=', i)
@@ -62,7 +53,3 @@ function simpleLoopExample() {
   console.log('after j=', j)
 }
 simpleLoopExample()
-
-// `const` must be given a value when it is declared.  use it when you want your values to be immutable
-// objects declared with `const` are not truly immutable.  you can, however, use the `Object.freeze` to achieve that
-// the only time you may need to still use `var` is for objects in the global scope (i.e. namespaces or modules)

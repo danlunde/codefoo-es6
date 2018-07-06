@@ -2,7 +2,18 @@
 import React from 'react'
 
 // Import Spectacle Core tags
-import { BlockQuote, Cite, Deck, Heading, ListItem, List, Notes, Quote, Slide, Text, Code } from 'spectacle'
+import {
+  BlockQuote,
+  Cite,
+  Deck,
+  Heading,
+  ListItem,
+  List,
+  Quote,
+  Slide,
+  Text,
+  Code,
+} from 'spectacle'
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default'
@@ -41,7 +52,12 @@ const theme = createTheme(
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={['zoom', 'slide']} transitionDuration={500} theme={theme} contentWidth={1400}>
+      <Deck
+        transition={['zoom', 'slide']}
+        transitionDuration={500}
+        theme={theme}
+        contentWidth={1400}
+      >
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Spectacle Boilerplate
@@ -80,16 +96,8 @@ export default class Presentation extends React.Component {
             Standard text
           </Text>
         </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>
-            Standard List
-          </Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
+        <Slide>
+          <Heading>Arrow Functions</Heading>
         </Slide>
         <CodeSlide
           transition={[]}
@@ -106,7 +114,9 @@ export default class Presentation extends React.Component {
           ]}
           notes={
             <div>
-              <h4>Arrow functions are the shorthand form of anonymous functions that already exist</h4>
+              <h4>
+                Arrow functions are the shorthand form of anonymous functions that already exist
+              </h4>
               <ul>
                 <li>It's concise. Only requires the function arguments and function body</li>
                 <li>Single line functions have an implicit return</li>
@@ -141,8 +151,8 @@ export default class Presentation extends React.Component {
               <ul>
                 <li>Never store `this` or bind again</li>
                 <li>
-                  The value of `this` within an arrow function is determined by where the arrow function is defined and not by where it is
-                  used (a.k.a. lexical scoping)
+                  The value of `this` within an arrow function is determined by where the arrow
+                  function is defined and not by where it is used (a.k.a. lexical scoping)
                 </li>
               </ul>
             </div>
@@ -164,6 +174,67 @@ export default class Presentation extends React.Component {
               <h4>Chain Arrows together</h4>
               <ul>
                 <li>when returning a function, we can chain fat arrows together</li>
+              </ul>
+            </div>
+          }
+        />
+        <Slide>
+          <Heading>let &amp; const</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/let-and-const.example')}
+          ranges={[
+            { loc: [0, 0], title: 'let is the new var' },
+            { loc: [0, 36] },
+            { loc: [35, 36] },
+            { loc: [3, 9] },
+            { loc: [10, 15] },
+            { loc: [16, 24] },
+            { loc: [1, 2] },
+            { loc: [25, 33] },
+            { loc: [37, 55] },
+            { loc: [39, 42] },
+            { loc: [42, 45] },
+            { loc: [46, 49] },
+            { loc: [50, 53] },
+          ]}
+          notes={
+            <div>
+              <h4>let</h4>
+              <ul>
+                <li>
+                  Variables declared via `let` are not available outside of the block in which they
+                  are declared
+                </li>
+
+                <li>
+                  Traditionally, one of the tricky parts of JavaScript has been the way that var
+                  declarations work. In most C-based languages [such as C++, Java or C#], variables
+                  are created at the spot where the declaration occurs. In JavaScript, however, this
+                  is not the case. Variables declared using var are hoisted to the top of the
+                  function (or global scope) regardless of where the actual declaration occurs.
+                </li>
+                <li>
+                  `let` avoids this issue by being block-scoped; it only exists within the current
+                  block
+                </li>
+              </ul>
+              <h4>const</h4>
+              <ul>
+                <li>
+                  `const` must be given a value when it is declared and variables declared via
+                  `const` also cannot be updated
+                </li>
+                <li>
+                  objects declared with `const` are not truly immutable. you can, however, use the
+                  `Object.freeze` to achieve that
+                </li>
+                <li>
+                  the only time you may need to still use `var` is for objects in the global scope
+                  (i.e. namespaces or modules)
+                </li>
               </ul>
             </div>
           }
