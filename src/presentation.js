@@ -329,7 +329,7 @@ export default class Presentation extends React.Component {
           lang="js"
           code={require('./snippets/parameters-2.example')}
           ranges={[
-            { loc: [0, 0], title: '{i, need, ...rest}' },
+            { loc: [0, 0], title: 'howAreYou({i, need, ...rest})' },
             { loc: [0, 4] },
             { loc: [0, 10] },
             { loc: [11, 14] },
@@ -348,6 +348,39 @@ export default class Presentation extends React.Component {
                 <li>
                   the spread operator allows us to separate an array into individual parameters,
                   taking the place of the `apply` function
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <Slide>
+          <Heading>Object Literals</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/object-literals.example')}
+          ranges={[
+            { loc: [0, 0], title: "{literally, [can]: 'not'}" },
+            { loc: [0, 12] },
+            { loc: [13, 21] },
+            { loc: [22, 30] },
+            { loc: [31, 42] },
+            { loc: [43, 53] },
+            { loc: [54, 62] },
+          ]}
+          notes={
+            <div>
+              <h4>object literals</h4>
+              <ul>
+                <li>
+                  since JSON has become the standard for data transport object literals make it
+                  crazy easy to assemble an arbitrarily nested and dynamic set of data object while
+                  still making it human-readable
+                </li>
+                <li>
+                  property value shorthand lets us abbreviate the initialization of a property
+                  within an object literal
                 </li>
               </ul>
             </div>

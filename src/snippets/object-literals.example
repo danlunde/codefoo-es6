@@ -1,21 +1,17 @@
-// since JSON has become the standard for data transport
-// object literals make it crazy easy to assemble an arbitrarily nested and dynamic set of data object while still making it human-readable
-
-// property value shorthand lets us abbreviate the initialization of a property within an object literal
-// provided that the property key matches an existing variable name
-// you will use this all the time
+// ES6: property value shorthand
+// lets us abbreviate the initialization of a property
 function getCar(make, model, value) {
   return {
-    // with property value shorthand
-    // syntax, you can omit the property
-    // value if key matches variable
-    // name
+    // with property value shorthand syntax,
+    // you can omit the property value
+    // if key matches variable name
     make,
     model,
     value,
   }
 }
 
+// ES5
 function getCar(make, model, value) {
   return {
     make: make,
@@ -24,7 +20,7 @@ function getCar(make, model, value) {
   }
 }
 
-// computed property keys
+// ES6: computed property keys
 function getCar(make, model, value) {
   return {
     // computed values now work with
@@ -33,6 +29,7 @@ function getCar(make, model, value) {
   }
 }
 
+// ES5 needs 3 lines for that
 function getCar(make, model, value) {
   var car = {}
 
@@ -44,7 +41,7 @@ function getCar(make, model, value) {
   return car
 }
 
-// method definition shorthad
+// ES6: method definition shorthad
 function getCar(make, model, value) {
   return {
     // Method definition shorthand syntax
@@ -55,6 +52,7 @@ function getCar(make, model, value) {
   }
 }
 
+// ES5
 function getCar(make, model, value) {
   return {
     depreciate: function() {
