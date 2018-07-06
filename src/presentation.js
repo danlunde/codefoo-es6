@@ -54,12 +54,7 @@ const theme = createTheme(
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck
-        transition={['zoom', 'slide']}
-        transitionDuration={500}
-        theme={theme}
-        contentWidth={1400}
-      >
+      <Deck transition={['fade']} transitionDuration={500} theme={theme} contentWidth={1400}>
         <Slide>
           <Heading>
             I <span role="img">❤️</span> ES6
@@ -67,7 +62,7 @@ export default class Presentation extends React.Component {
           <Text>or</Text>
           <Text>how I learned to tolerate writing JavaScript again</Text>
         </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
+        <Slide bgColor="tertiary">
           <Heading textColor="secondary" caps>
             Topics
           </Heading>
