@@ -104,7 +104,7 @@ export default class Presentation extends React.Component {
         <CodeSlide
           transition={[]}
           lang="js"
-          code={require('raw-loader!./snippets/destructuring.example')}
+          code={require('raw-loader!./snippets/destructuring.js')}
           ranges={
             [
               { loc: [0, 99], title: 'Walking through some code' },
