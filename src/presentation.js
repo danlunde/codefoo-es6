@@ -74,7 +74,7 @@ export default class Presentation extends React.Component {
               </TableRow>
               <TableRow>
                 <TableItem>let &amp; const</TableItem>
-                <TableItem>For of</TableItem>
+                <TableItem>for of</TableItem>
               </TableRow>
               <TableRow>
                 <TableItem>Destructuring</TableItem>
@@ -85,7 +85,7 @@ export default class Presentation extends React.Component {
                 <TableItem>Promises</TableItem>
               </TableRow>
               <TableRow>
-                <TableItem>Object Liters</TableItem>
+                <TableItem>Object Literals</TableItem>
                 <TableItem>async / await</TableItem>
               </TableRow>
             </TableBody>
@@ -93,6 +93,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Heading>Arrow Functions</Heading>
+          <Text>a.k.a. Fat Arrows</Text>
         </Slide>
         <CodeSlide
           transition={[]}
@@ -137,6 +138,7 @@ export default class Presentation extends React.Component {
             { loc: [28, 41] },
             { loc: [29, 40] },
             { loc: [30, 38] },
+            { loc: [35, 36] },
             { loc: [53, 73] },
             { loc: [56, 64] },
           ]}
@@ -265,6 +267,8 @@ export default class Presentation extends React.Component {
             <div>
               <h4>destructuring</h4>
               <ul>
+                <li>destructuring is the process of extracting values out of an array or object</li>
+                <li>it uses pattern matching to matching property keys with variable names</li>
                 <li>If you wanted address and city as variables you'd need two statements</li>
                 <li>
                   destructuring has a fail-soft approach where missing properties result in
@@ -292,7 +296,6 @@ export default class Presentation extends React.Component {
             { loc: [3, 5] },
             { loc: [14, 31] },
             { loc: [25, 30] },
-            { loc: [15, 16] },
             { loc: [32, 39] },
             { loc: [40, 45] },
             { loc: [46, 57] },

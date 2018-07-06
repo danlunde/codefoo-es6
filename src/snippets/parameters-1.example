@@ -97,7 +97,7 @@ function drawCube(x, y = 7, z) {
 
 // `y` is defaulted, but `x` & `z` are not
 // so they are `undefined`.
-// output: cube, undefined, y, undefined
+// output: cube, undefined, 7, undefined
 drawCube()
 
 // `y` is still defaulted, but `z` isn't.
