@@ -91,7 +91,7 @@ export default class Presentation extends React.Component {
               </TableRow>
               <TableRow>
                 <TableItem>Object Liters</TableItem>
-                <TableItem />
+                <TableItem>async / await</TableItem>
               </TableRow>
             </TableBody>
           </Table>
@@ -650,6 +650,54 @@ export default class Presentation extends React.Component {
                   it’s completely clear whether the code is handling success or failure. Many times
                   with callbacks there is a single callback and within it you have to do an if check
                   against any errors.
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <Slide>
+          <Heading>async / await</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/async-await.example')}
+          ranges={[
+            { loc: [0, 0], title: 'await for it' },
+            { loc: [0, 7] },
+            { loc: [8, 14] },
+            { loc: [16, 32] },
+            { loc: [33, 43] },
+            { loc: [44, 58] },
+            { loc: [59, 71] },
+            { loc: [72, 83] },
+            { loc: [84, 90] },
+            { loc: [91, 98] },
+            { loc: [99, 109] },
+          ]}
+          notes={
+            <div>
+              <h4>async / await</h4>
+              <ul>
+                <li>
+                  Async/await is actually built on top of promises. It cannot be used with plain
+                  callbacks or node callbacks.
+                </li>
+                <li>
+                  Async/await makes asynchronous code look and behave a little more like synchronous
+                  code. This is where all its power lies.
+                </li>
+                <li>
+                  Any async function returns a promise implicitly, and the resolve value of the
+                  promise will be whatever you return from the function
+                </li>
+                <li>
+                  Async/await makes it finally possible to handle both synchronous and asynchronous
+                  errors with the same construct, good old try/catch. In the example below with
+                  promises, the try/catch will not handle if JSON.parse fails because it’s happening
+                  inside a promise. We need to call .catch on the promise and duplicate our error
+                  handling code, which will (hopefully) be more sophisticated than console.log in
+                  your production ready code.
                 </li>
               </ul>
             </div>
