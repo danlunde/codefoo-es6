@@ -239,6 +239,51 @@ export default class Presentation extends React.Component {
             </div>
           }
         />
+        <Slide>
+          <Heading>Destructuring</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/destructuring.example')}
+          ranges={[
+            { loc: [0, 0], title: '{} and [], easy as 1, 2, 3' },
+            { loc: [0, 5] },
+            { loc: [6, 11] },
+            { loc: [12, 18] },
+            { loc: [19, 33] },
+            {
+              loc: [19, 33],
+              note: 'you can not assign both parent and child properties at the same time',
+            },
+            { loc: [34, 41] },
+            { loc: [42, 54] },
+            { loc: [55, 65] },
+            { loc: [66, 72] },
+            { loc: [73, 79] },
+            { loc: [80, 92] },
+            { loc: [92, 98] },
+            { loc: [99, 103] },
+            { loc: [104, 108] },
+            { loc: [109, 114] },
+          ]}
+          notes={
+            <div>
+              <h4>destructuring</h4>
+              <ul>
+                <li>If you wanted address and city as variables you'd need two statements</li>
+
+                <li>
+                  destructuring has a fail-soft approach where missing properties result in
+                  `undefined`
+                </li>
+                <li>
+                  however be cautious of destructuring a child whose parent property is also missing
+                </li>
+              </ul>
+            </div>
+          }
+        />
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote>Example Quote</Quote>
