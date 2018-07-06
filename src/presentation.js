@@ -386,6 +386,45 @@ export default class Presentation extends React.Component {
             </div>
           }
         />
+        <Slide>
+          <Heading>Template Literals</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/template-literals.example')}
+          ranges={[
+            { loc: [0, 0], title: '`i give this talk a ${rating}`' },
+            { loc: [0, 4] },
+            { loc: [5, 12] },
+            { loc: [13, 32] },
+            { loc: [33, 41] },
+            { loc: [43, 52] },
+            { loc: [52, 61] },
+            { loc: [62, 65] },
+            { loc: [66, 72] },
+            { loc: [73, 78] },
+          ]}
+          notes={
+            <div>
+              <h4>template literals</h4>
+              <ul>
+                <li>
+                  template literals are a brand new type of string literal, delimitied by backticks,
+                  that support string interpolation and multi-line strings.
+                </li>
+                <li>
+                  since it uses backticks, they can include single and double quotes without needing
+                  to escapse them
+                </li>
+                <li>
+                  tagged templates allow string processing of template literals by defining a
+                  function
+                </li>
+              </ul>
+            </div>
+          }
+        />
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote>Example Quote</Quote>
