@@ -425,6 +425,60 @@ export default class Presentation extends React.Component {
             </div>
           }
         />
+        <Slide>
+          <Heading>Promises</Heading>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require('./snippets/promises.example')}
+          ranges={[
+            { loc: [0, 0], title: '🤞' },
+            { loc: [0, 6] },
+            { loc: [7, 13] },
+            { loc: [13, 17] },
+            { loc: [17, 21] },
+            { loc: [21, 25] },
+            { loc: [26, 54] },
+            { loc: [55, 66] },
+            { loc: [41, 42] },
+            { loc: [44, 53] },
+            { loc: [67, 91] },
+            { loc: [75, 84] },
+            { loc: [75, 84], note: '🔥 callback hell 🔥' },
+            { loc: [92, 113] },
+            { loc: [95, 112] },
+            { loc: [114, 115] },
+            { loc: [115, 124] },
+            { loc: [124, 127] },
+            { loc: [127, 131] },
+            { loc: [114, 115] },
+          ]}
+          notes={
+            <div>
+              <h4>promises</h4>
+              <ul>
+                <li>promises represent the eventual result of an asynchronous operation</li>
+                <li>
+                  rather than pass a callback in the call to an async function, the function returns
+                  a promise
+                </li>
+                <li>
+                  The callback pattern, while more convenient to use than event handlers, still had
+                  several drawbacks. The first is apparent in the example. The callback function has
+                  two ways of handling errors: if-else on the returned data and try-catch around any
+                  operations within the function.
+                </li>
+                <li>
+                  Secondly, callback functions proved to be untenable when developers had callbacks
+                  within callback within callbacks. This affectionately became known as callback
+                  hell. Let’s say for example after you retrieved /json/data.json you needed to make
+                  another fetch request based on the returned data from the first request:
+                </li>
+              </ul>
+            </div>
+          }
+        />
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote>Example Quote</Quote>
