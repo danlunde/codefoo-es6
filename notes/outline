@@ -2,7 +2,9 @@ arrow functions
 let and const
 destructuring
 parameters
+object literals
 template literals
+
 promises
 async / await
 classes

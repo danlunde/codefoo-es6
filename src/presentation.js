@@ -7,8 +7,10 @@ import {
   Cite,
   Deck,
   Heading,
-  ListItem,
-  List,
+  TableItem,
+  Table,
+  TableRow,
+  TableBody,
   Quote,
   Slide,
   Text,
@@ -58,14 +60,6 @@ export default class Presentation extends React.Component {
         theme={theme}
         contentWidth={1400}
       >
-        <Slide transition={['zoom']} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
-          </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            open the presentation/index.js file to get started
-          </Text>
-        </Slide>
         <Slide>
           <Heading>
             I <span role="img">❤️</span> ES6
@@ -74,27 +68,33 @@ export default class Presentation extends React.Component {
           <Text>how I learned to tolerate writing JavaScript again</Text>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>
-            Typography
+          <Heading textColor="secondary" caps>
+            Topics
           </Heading>
-          <Heading size={1} textColor="secondary">
-            Heading 1
-          </Heading>
-          <Heading size={2} textColor="secondary">
-            Heading 2
-          </Heading>
-          <Heading size={3} textColor="secondary">
-            Heading 3
-          </Heading>
-          <Heading size={4} textColor="secondary">
-            Heading 4
-          </Heading>
-          <Heading size={5} textColor="secondary">
-            Heading 5
-          </Heading>
-          <Text size={6} textColor="secondary">
-            Standard text
-          </Text>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableItem>Arrow Functions</TableItem>
+                <TableItem>Template Literals</TableItem>
+              </TableRow>
+              <TableRow>
+                <TableItem>let &amp; const</TableItem>
+                <TableItem>For of</TableItem>
+              </TableRow>
+              <TableRow>
+                <TableItem>Destructuring</TableItem>
+                <TableItem>Collections</TableItem>
+              </TableRow>
+              <TableRow>
+                <TableItem>Parameters</TableItem>
+                <TableItem>Promises</TableItem>
+              </TableRow>
+              <TableRow>
+                <TableItem>Object Liters</TableItem>
+                <TableItem />
+              </TableRow>
+            </TableBody>
+          </Table>
         </Slide>
         <Slide>
           <Heading>Arrow Functions</Heading>
@@ -459,7 +459,7 @@ export default class Presentation extends React.Component {
                   actually more or less equivalent to doing continue in a for loop, but far less
                   intuitive. Including continue in the forEach call back function would be the same
                   sort of syntax error we got with break. Lastly, only Array objects have the
-                  forEach method. Other array-like objects (such as arguments or DOM NodeList)
+                  forEach method. Other array-like objects (such as arguments or DOM NodeTable)
                   unfortunately do not, leaving us to do “clever” tricks with Array.prototype.apply.
                 </li>
                 <li>
@@ -472,8 +472,8 @@ export default class Presentation extends React.Component {
                 <li>
                   But for-of doesn’t just work for arrays. If it did, it probably wouldn’t have been
                   meaty enough to add to the ES6 specification. Other existing collections like the
-                  DOM NodeList object, the arguments object, and strings also work with for-of. Just
-                  like with arrays, this makes it a little bit easier to iterate over these
+                  DOM NodeTable object, the arguments object, and strings also work with for-of.
+                  Just like with arrays, this makes it a little bit easier to iterate over these
                   non-array objects.
                 </li>
               </ul>
@@ -613,8 +613,8 @@ export default class Presentation extends React.Component {
         />
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
+            <Quote>Whew !!!</Quote>
+            <Cite>Daniel Lunde</Cite>
           </BlockQuote>
         </Slide>
       </Deck>
